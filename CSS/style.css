@@ -18,3 +18,10 @@
     height: 200px;
     background: salmon;
 }
+.cross{
+    background: url('../images/cross.png') 100% /cover no-repeat;
+}
+.round{
+    background: url('../images/circle.png') 100% /cover no-repeat;
+}
+
