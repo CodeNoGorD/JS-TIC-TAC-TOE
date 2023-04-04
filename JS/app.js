@@ -56,7 +56,7 @@ btnValid.addEventListener('click', (e) => {
         } else if(player2 === "") {
             throw new Error('Le joueur N°2 doit renseigner un nom valide !');
         } else {
-            bienvenue.textContent = 'Vous pouvez commencer...';
+            bienvenue.textContent = 'Vous pouvez commencer: PARTIE 1';
             grid.style.display="grid";
         }
     }

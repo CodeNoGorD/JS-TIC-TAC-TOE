@@ -91,5 +91,6 @@ class Game{
         gameTurn.value = 0;
         game.gameOver = false;
         game.nbParty++;
+        bienvenue.textContent = `PARTIE ${game.nbParty}`;
     }
 }
