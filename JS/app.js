@@ -61,7 +61,7 @@ class Game{
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
-                        console.table(gameResult);
+                        // console.table(gameResult);
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `PERDU vous pouvez recommencer !`;
@@ -78,7 +78,7 @@ class Game{
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
-                        console.table(gameResult);
+                        // console.table(gameResult);
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `PERDU vous pouvez recommencer !`;
@@ -99,6 +99,8 @@ class Game{
         gameResult = gameGrid.map( el => el);
         table = game.showGrid(gameGrid);
         grid.appendChild(table);
+        gameTurn.value = 0;
+        game.gameOver = false;
         game.nbParty++;
     }
 }
