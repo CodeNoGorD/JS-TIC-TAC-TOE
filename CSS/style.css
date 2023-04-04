@@ -3,6 +3,11 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    font-size: 6rem;
+    color:rgb(29, 93, 167);
+    text-align: center;
+}
 
 .affichage{
     display: none;
@@ -20,6 +25,32 @@
     border: 4px solid black;
 }
 .affichage h2{
-    font-size: 4rem;
+    font-size: 3rem;
     color: rgb(167, 29, 29);
+}
+.bienvenue{
+    text-align: center;
+    display: block;
+    font-size: 2rem;
+    color: blue;
+}
+
+input{
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
+    margin: 2rem 4rem;
+}
+form, table{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+form label{
+    font-size: 2rem;
+    font-weight: bold;
 }

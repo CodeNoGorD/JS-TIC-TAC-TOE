@@ -47,6 +47,8 @@ let gameTurn = document.querySelector('#hidden');
 let containerAffichage = document.querySelector('.affichage');
 let affichage = document.querySelector('.affichage h2');
 gameTurn.value = 0;
+let bienvenue = document.querySelector('.bienvenue');
+console.log(bienvenue);
 console.log(gameTurn.value);
 
 
@@ -78,6 +80,8 @@ btnValid.addEventListener('click', (e) => {
     player2 = document.querySelector('#player2').value;
     console.log(player1);
     console.log(player2);
+    bienvenue.textContent = 'Vous pouvez commencer...';
+
 });
 
 
