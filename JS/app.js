@@ -48,7 +48,6 @@ let containerAffichage = document.querySelector('.affichage');
 let affichage = document.querySelector('.affichage h2');
 gameTurn.value = 0;
 let bienvenue = document.querySelector('.bienvenue');
-console.log(bienvenue);
 console.log(gameTurn.value);
 
 
@@ -100,11 +99,13 @@ let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
         if(game.gameOver == true){
             containerAffichage.style.display = 'flex';
             affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
-        } else if (gameTurn.value == 9 && game.gameOver == false){
+        } else if (gameTurn.value > 7 && game.gameOver == false){
             console.log('égalité');
         };
+        console.log(gameTurn.value);
+        console.log(game.gameOver);
     }
-    if (gameTurn.value % 2 == 0){
+    if(gameTurn.value % 2 == 0){
         e.target.setAttribute('src', './images/circle.png');
         e.target.parentNode.classList.add('circle');
         e.target.parentNode.style.pointerEvents = 'none';
@@ -113,15 +114,11 @@ let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
         if(game.gameOver == true){
             containerAffichage.style.display = 'flex';
             affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
-            }
-        } else if(gameTurn.value == 9 && game.gameOver == false){
+        } else if (gameTurn.value > 7 && game.gameOver == false){
             console.log('égalité');
         };
-        gameTurn.value++;
         console.log(gameTurn.value);
         console.log(game.gameOver);
+    }
+    gameTurn.value++;
 });
-
-
-
-
