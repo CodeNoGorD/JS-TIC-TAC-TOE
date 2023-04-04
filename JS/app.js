@@ -83,6 +83,11 @@ btnValid.addEventListener('click', (e) => {
 
 });
 
+containerAffichage.addEventListener('click', () => {
+    console.log('test');
+    location.reload();
+});
+
 
 // while(!game.gameOver){
 console.log(gameTurn.value);
@@ -100,7 +105,8 @@ let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
             containerAffichage.style.display = 'flex';
             affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
         } else if (gameTurn.value > 7 && game.gameOver == false){
-            console.log('égalité');
+            containerAffichage.style.display = 'flex';
+            affichage.innerText = `PERDU vous pouvez recommencer !`;
         };
         console.log(gameTurn.value);
         console.log(game.gameOver);
@@ -115,7 +121,8 @@ let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
             containerAffichage.style.display = 'flex';
             affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
         } else if (gameTurn.value > 7 && game.gameOver == false){
-            console.log('égalité');
+            containerAffichage.style.display = 'flex';
+            affichage.innerText = `PERDU vous pouvez recommencer !`;
         };
         console.log(gameTurn.value);
         console.log(game.gameOver);
