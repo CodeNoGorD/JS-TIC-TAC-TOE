@@ -9,6 +9,8 @@ class Game{
         this.player1 = player1;
         this.player2 = player2;
         this.nbParty = 1;
+        this.player1Wins = 0;
+        this.player2Wins = 0;
     }
     createGrid(vertical, horizontal){
         let gridText = [];
@@ -50,6 +52,7 @@ class Game{
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
+                        game.player2Wins++;
                         // console.table(gameResult);
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
@@ -67,6 +70,7 @@ class Game{
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
+                        game.player1Wins++;
                         // console.table(gameResult);
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';

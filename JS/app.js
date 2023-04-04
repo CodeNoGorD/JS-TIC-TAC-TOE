@@ -11,7 +11,8 @@ let affichage = document.querySelector('.affichage h2');
 gameTurn.value = 0;
 let bienvenue = document.querySelector('.bienvenue');
 console.log(gameTurn.value);
-
+let scorePlayer1 = document.querySelector('#score1');
+let scorePlayer2 = document.querySelector('#score2');
 
 
 
@@ -21,6 +22,8 @@ let gameGrid = game.createGrid(3, 3);
 let gameResult = gameGrid.map( el => el);
 let table = game.showGrid(gameGrid);
 grid.appendChild(table);
+scorePlayer1.innerText = game.player1Wins;
+scorePlayer2.innerText = game.player2Wins;
 
 function verifResult(){
     if ((gameResult[0][0] == gameResult[0][1]  && gameResult[0][2] == gameResult[0][0]) ||
