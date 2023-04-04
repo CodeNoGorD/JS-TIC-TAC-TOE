@@ -1,0 +1,25 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.affichage{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(167, 29, 29);
+    background: rgb(206, 201, 201);
+    border-radius: 2rem;
+    border: 4px solid black;
+}
+.affichage h2{
+    font-size: 4rem;
+    color: rgb(167, 29, 29);
+}

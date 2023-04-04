@@ -4,21 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../MORPION/CSS/style.css">
+    <link rel="stylesheet" href="./CSS/style.css">
     <title>MORPION</title>
 </head>
 <body>
     <h1>Bienvenue dans le jeu du Morpion</h1>
 
     <form>
-        <label for="player1"></label>
+        <label for="player1">PLAYER 1</label>
         <input type="text" id="player1" name="player1" placeholder="Nom du joueur 1?"/>
-        <label for="player2"></label>
+        <label for="player2">PLAYER 2</label>
         <input type="text" id="player2" name="player2" placeholder="Nom du joueur 2?"/>
-        <input type="submit" id="btn-valid" name="btn-valid"/>
+        <input type="submit" id="btn-valid" name="btn-valid" value="Valider"/>
         <input type="hidden" name="hidden" id="hidden"/>
     </form>
-
+    
+    <div class="affichage">
+        <h2></h2>
+    </div>
     <div class="grid"></div>
     
     <script src="./JS/app.js"></script>

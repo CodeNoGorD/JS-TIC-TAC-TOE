@@ -44,6 +44,8 @@ let player1;
 let player2;
 let btnValid = document.querySelector('#btn-valid');
 let gameTurn = document.querySelector('#hidden');
+let containerAffichage = document.querySelector('.affichage');
+let affichage = document.querySelector('.affichage h2');
 gameTurn.value = 0;
 console.log(gameTurn.value);
 
@@ -88,10 +90,12 @@ let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
     if(gameTurn.value % 2 != 0){
         e.target.setAttribute('src', './images/cross.png');
         e.target.parentNode.classList.add('cross');
+        e.target.parentNode.style.pointerEvents = 'none';
         gameResult[X][Y] = 'cross';
         game.gameOver = verifResult();
         if(game.gameOver == true){
-            console.log('BRAVO PLAYER CROIX');
+            containerAffichage.style.display = 'flex';
+            affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
         } else if (gameTurn.value == 9 && game.gameOver == false){
             console.log('égalité');
         };
@@ -99,10 +103,12 @@ let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
     if (gameTurn.value % 2 == 0){
         e.target.setAttribute('src', './images/circle.png');
         e.target.parentNode.classList.add('circle');
+        e.target.parentNode.style.pointerEvents = 'none';
         gameResult[X][Y] = 'circle';
         game.gameOver = verifResult();
         if(game.gameOver == true){
-            console.log('BRAVO PLAYER ROND');
+            containerAffichage.style.display = 'flex';
+            affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
             }
         } else if(gameTurn.value == 9 && game.gameOver == false){
             console.log('égalité');
