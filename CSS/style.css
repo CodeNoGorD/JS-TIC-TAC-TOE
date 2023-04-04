@@ -3,25 +3,64 @@
     padding: 0;
     box-sizing: border-box;
 }
+h1{
+    font-size: 6rem;
+    color:rgb(29, 93, 167);
+    text-align: center;
+}
 
-.grid{
-    width : 40%;
-    display: grid;
-    place-items: center;
+.affichage{
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 400px;
+    width: 1000px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgb(167, 29, 29);
+    background: rgb(206, 201, 201);
+    border-radius: 2rem;
+    border: 4px solid black;
+}
+.affichage h2{
+    font-size: 3rem;
+    color: rgb(167, 29, 29);
+}
+.bienvenue{
+    text-align: center;
+    display: block;
+    font-size: 2rem;
+    color: blue;
+}
+
+input{
+    width: 10rem;
+    height: 2rem;
+    text-align: center;
+    margin: 2rem 4rem;
+}
+form{
+    width: 80%;
     margin: 0 auto;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
-    grid-template-rows: repeat(3, 1fr);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
 }
-.case {
-    width: 200px;
-    height: 200px;
-    background: salmon;
+table{
+    width: 40%;
+    margin: 0 auto;
+    gap: 0rem;
 }
-.cross{
-    background: url('../images/cross.png') 100% /cover no-repeat;
+td img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-.round{
-    background: url('../images/circle.png') 100% /cover no-repeat;
+form label{
+    font-size: 2rem;
+    font-weight: bold;
 }
-
