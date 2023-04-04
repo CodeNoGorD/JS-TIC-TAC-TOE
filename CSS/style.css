@@ -11,6 +11,7 @@ h1{
 
 .affichage{
     display: none;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 400px;
@@ -63,4 +64,10 @@ td img{
 form label{
     font-size: 2rem;
     font-weight: bold;
+}
+
+.restart{
+    /* display: none; */
+    width: 7rem;
+    height: 5rem;
 }
