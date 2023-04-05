@@ -1,6 +1,6 @@
 "user strict";
 
-nbParty = 1;
+let nbParty = 1;
 let player1Wins = 0;
 let player2Wins = 0;
 let scorePlayer1 = document.querySelector('#score1');
