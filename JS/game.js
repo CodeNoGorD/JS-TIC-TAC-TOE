@@ -1,5 +1,10 @@
 "user strict";
 
+nbParty = 1;
+let player1Wins = 0;
+let player2Wins = 0;
+let scorePlayer1 = document.querySelector('#score1');
+let scorePlayer2 = document.querySelector('#score2');
 
 
 class Game{
@@ -8,9 +13,7 @@ class Game{
         this.gameOver = false;
         this.player1 = player1;
         this.player2 = player2;
-        this.nbParty = 1;
-        this.player1Wins = 0;
-        this.player2Wins = 0;
+       
     }
     createGrid(vertical, horizontal){
         let gridText = [];
@@ -42,6 +45,7 @@ class Game{
         table.addEventListener('click', (e) => {
             let X = e.target.parentNode.getAttribute('data').slice(1, 2);
             let Y = e.target.parentNode.getAttribute('data').slice(4, 5);
+      
 
                 if(gameTurn.value % 2 != 0){
                     e.target.setAttribute('src', './images/cross.png');
@@ -49,17 +53,19 @@ class Game{
                     e.target.parentNode.style.pointerEvents = 'none';
                     gameResult[X][Y] = 'cross';
                     game.gameOver = verifResult();
+                    console.log(player2Wins);
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
-                        game.player2Wins++;
+                        player2Wins++;
+                        console.log(player2Wins);
                         // console.table(gameResult);
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `PERDU vous pouvez recommencer !`;
                     };
-                    console.log(gameTurn.value);
-                    console.log(game.gameOver);
+                    // console.log(gameTurn.value);
+                    // console.log(game.gameOver);
                 }
                 if(gameTurn.value % 2 == 0){
                     e.target.setAttribute('src', './images/circle.png');
@@ -67,17 +73,19 @@ class Game{
                     e.target.parentNode.style.pointerEvents = 'none';
                     gameResult[X][Y] = 'circle';
                     game.gameOver = verifResult();
+                    console.log(player1Wins);
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
-                        game.player1Wins++;
+                        player1Wins++;
+                        console.log(player1Wins);
                         // console.table(gameResult);
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `PERDU vous pouvez recommencer !`;
                     };
-                    console.log(gameTurn.value);
-                    console.log(game.gameOver);
+                    // console.log(gameTurn.value);
+                    // console.log(game.gameOver);
                 }
                 gameTurn.value++;
             });
@@ -94,7 +102,9 @@ class Game{
         grid.appendChild(table);
         gameTurn.value = 0;
         game.gameOver = false;
-        game.nbParty++;
-        bienvenue.textContent = `PARTIE ${game.nbParty}`;
+        nbParty++;
+        scorePlayer1.innerText = player1Wins;
+        scorePlayer2.innerText = player2Wins;
+        bienvenue.textContent = `PARTIE ${nbParty}`;
     }
 }
