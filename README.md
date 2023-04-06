@@ -41,5 +41,5 @@ A chaque tour la variable gameTurn s'incrémente.
 ### restart
 
 La fonction restart efface la table, génère un nouveau jeu, incrémente la variable nbParty, et affiche le nombre de victoires de chaque joueur.
-On réinitialise les variables gameTurn et gameOver à 0 et false.
+On utilise local storage pour retenir le nombre de parties totale, et les victoires du joueur 1 et 2.
 

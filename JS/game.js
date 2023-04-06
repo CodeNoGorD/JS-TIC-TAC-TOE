@@ -1,24 +1,14 @@
 "user strict";
 
-let nbParty = 1;
-let player1Wins = 0;
-let player2Wins = 0;
-
-// sessionStorage.setItem('player1Wins', '0');
-// sessionStorage.setItem('player2Wins', '0');
-
-
-
 let scorePlayer1 = document.querySelector('#score1');
 let scorePlayer2 = document.querySelector('#score2');
 
-
 class Game{
-    constructor(nbPlayers, player1, player2){
-        this.nbPlayers = nbPlayers;
+    constructor(nbParty, player1Wins, player2Wins){
+        this.nbParty = nbParty;
         this.gameOver = false;
-        this.player1 = player1;
-        this.player2 = player2;
+        this.player1Wins = player1Wins;
+        this.player2Wins = player2Wins;
     }
     createGrid(vertical, horizontal){
         let gridText = [];
@@ -29,7 +19,6 @@ class Game{
             }  
             gridText.push(row);
         }
-        // console.log(gridText);
         return(gridText);
     }
     showGrid(tab){
@@ -58,19 +47,14 @@ class Game{
                     e.target.parentNode.style.pointerEvents = 'none';
                     gameResult[X][Y] = 'cross';
                     game.gameOver = verifResult();
-                    console.log(player2Wins);
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player2}, vous avez GAGNE !`;
-                        player2Wins++;
-                        console.log(player2Wins);
-                        // console.table(gameResult);
+                        this.player2Wins++;
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `PERDU vous pouvez recommencer !`;
                     };
-                    // console.log(gameTurn.value);
-                    // console.log(game.gameOver);
                 }
                 if(gameTurn.value % 2 == 0){
                     e.target.setAttribute('src', './images/circle.png');
@@ -78,40 +62,34 @@ class Game{
                     e.target.parentNode.style.pointerEvents = 'none';
                     gameResult[X][Y] = 'circle';
                     game.gameOver = verifResult();
-                    console.log(player1Wins);
                     if(game.gameOver == true){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `Bravo ${player1}, vous avez GAGNE !`;
-                        player1Wins++;
-                        console.log(player1Wins);
-                        // console.table(gameResult);
+                        this.player1Wins++;
                     } else if (gameTurn.value > 7 && game.gameOver == false){
                         containerAffichage.style.display = 'flex';
                         affichage.innerText = `PERDU vous pouvez recommencer !`;
                     };
-                    // console.log(gameTurn.value);
-                    // console.log(game.gameOver);
                 }
                 gameTurn.value++;
             });
         return table;
     }
     restart(){
-
         grid.innerHTML = '';
         containerAffichage.style.display = 'none';
-
-        game = new Game(2, player1, player2);
+        game.nbParty++;
+        gameTurn.value = 0;
+        game.gameOver = false;
+        localStorage.setItem('game', JSON.stringify(game));
+        let saveDatas = JSON.parse(localStorage.getItem('game'));
+        game = new Game(saveDatas.nbParty, saveDatas.player1Wins, saveDatas.player2Wins);
         gameGrid = game.createGrid(3, 3);
         gameResult = gameGrid.map( el => el);
         table = game.showGrid(gameGrid);
         grid.appendChild(table);
-        nbParty++;
-        scorePlayer1.innerText = player1Wins;
-        scorePlayer2.innerText = player2Wins;
-        bienvenue.textContent = `PARTIE ${nbParty}`;
-        gameTurn.value = 0;
-        game.gameOver = false;
-        
+        scorePlayer1.innerText = saveDatas.player1Wins;
+        scorePlayer2.innerText = saveDatas.player2Wins;
+        bienvenue.textContent = `PARTIE ${saveDatas.nbParty}`;
     }
 }

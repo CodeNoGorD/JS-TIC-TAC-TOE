@@ -10,11 +10,11 @@ let btnRestart = document.querySelector('.restart');
 let affichage = document.querySelector('.affichage h2');
 gameTurn.value = 0;
 let bienvenue = document.querySelector('.bienvenue');
-// console.log(gameTurn.value);
 
 
 //GAMEPLAY
-let game = new Game(2, player1, player2);
+let game = new Game(1, 0, 0);
+localStorage.setItem('game', JSON.stringify(game));
 let gameGrid = game.createGrid(3, 3);
 let gameResult = gameGrid.map( el => el);
 let table = game.showGrid(gameGrid);
