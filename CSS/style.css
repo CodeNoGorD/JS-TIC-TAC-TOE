@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 h1{
-    font-size: 6rem;
+    font-size: 3rem;
     color:rgb(29, 93, 167);
     text-align: center;
 }
@@ -52,7 +52,7 @@ form{
     justify-content: center;
 }
 table{
-    width: 40%;
+    width: 30%;
     margin: 0 auto;
     gap: 0rem;
 }
