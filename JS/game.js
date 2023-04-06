@@ -3,6 +3,12 @@
 let nbParty = 1;
 let player1Wins = 0;
 let player2Wins = 0;
+
+// sessionStorage.setItem('player1Wins', '0');
+// sessionStorage.setItem('player2Wins', '0');
+
+
+
 let scorePlayer1 = document.querySelector('#score1');
 let scorePlayer2 = document.querySelector('#score2');
 
@@ -13,7 +19,6 @@ class Game{
         this.gameOver = false;
         this.player1 = player1;
         this.player2 = player2;
-       
     }
     createGrid(vertical, horizontal){
         let gridText = [];
@@ -92,19 +97,21 @@ class Game{
         return table;
     }
     restart(){
+
         grid.innerHTML = '';
         containerAffichage.style.display = 'none';
-        
+
         game = new Game(2, player1, player2);
         gameGrid = game.createGrid(3, 3);
         gameResult = gameGrid.map( el => el);
         table = game.showGrid(gameGrid);
         grid.appendChild(table);
-        gameTurn.value = 0;
-        game.gameOver = false;
         nbParty++;
         scorePlayer1.innerText = player1Wins;
         scorePlayer2.innerText = player2Wins;
         bienvenue.textContent = `PARTIE ${nbParty}`;
+        gameTurn.value = 0;
+        game.gameOver = false;
+        
     }
 }

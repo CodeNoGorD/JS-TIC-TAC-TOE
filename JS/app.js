@@ -13,8 +13,6 @@ let bienvenue = document.querySelector('.bienvenue');
 // console.log(gameTurn.value);
 
 
-
-
 //GAMEPLAY
 let game = new Game(2, player1, player2);
 let gameGrid = game.createGrid(3, 3);
